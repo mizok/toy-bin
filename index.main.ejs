@@ -4,8 +4,16 @@
 <%- include('./src/template/head.ejs',{title:'Index'})%>
 
 <body>
-  <%- include('./src/template/header.ejs') %>
-  <%- include('./src/template/footer.ejs') %>
+  <div class="site">
+    <div class="site__inner">
+      <div class="site__body">
+        <%- include('./src/template/toys/zh-tw-alphabet.ejs')%>
+      </div>
+      <a href="#" class="site__btn menu-btn"></a>
+      <%- include('./src/template/menu.ejs') %>
+    </div>
+  </div>
+  
 </body>
 
 </html>

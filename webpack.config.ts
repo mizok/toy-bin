@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { resolve } = require('path');
+const { resolve,join } = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
@@ -95,7 +95,11 @@ const config:webpack.Configuration = {
     historyApiFallback: true,
     open: true,
     compress: true,
-    watchFiles: ['*.html', 'src/template/*.html', '*.ejs', 'src/template/*.ejs'],// this is important
+    hot:false,
+    static:{
+      directory: join(__dirname, './src/template/toys'),
+    },
+    watchFiles: ['*.html', 'src/template/*.html', '*.ejs', 'src/template/*.ejs','src/template/**/*.ejs','src/template/**/*.ejs'],// this is important
     port: 8080
   },
   mode: 'development',
@@ -133,7 +137,12 @@ const config:webpack.Configuration = {
               minimize: !NO_COMPRESS
             }
           },
-          'template-ejs-loader'
+          {
+            loader:'template-ejs-loader',
+            options:{
+            }
+          }
+          
         ]
       },
       {

@@ -1,4 +1,6 @@
-html,
-body {
-  height: 100%;
-}
+@import './variables/font';
+@import'./variables/color';
+@import './mixins';
+@import './reset';
+
+@import './layouts/site';
