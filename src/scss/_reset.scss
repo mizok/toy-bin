@@ -1,7 +1,7 @@
   * {
     padding: 0;
     margin: 0;
-    font-family: $text-font-stack;
+  font-family: $text-font-stack;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     -webkit-appearance: none;
@@ -288,7 +288,7 @@
   }
 
 
-  html,
-body {
+  
+  html,body {
   height: 100%;
 }

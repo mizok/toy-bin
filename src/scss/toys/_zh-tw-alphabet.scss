@@ -1,0 +1,6 @@
+.zh-tw-alphabet{
+  @include zh-tw-character-frame;
+  &__text{
+    font-size: 20vw;
+  }
+}

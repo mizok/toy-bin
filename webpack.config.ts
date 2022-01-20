@@ -95,10 +95,6 @@ const config:webpack.Configuration = {
     historyApiFallback: true,
     open: true,
     compress: true,
-    hot:false,
-    static:{
-      directory: join(__dirname, './src/template/toys'),
-    },
     watchFiles: ['*.html', 'src/template/*.html', '*.ejs', 'src/template/*.ejs','src/template/**/*.ejs','src/template/**/*.ejs'],// this is important
     port: 8080
   },
@@ -205,6 +201,10 @@ const config:webpack.Configuration = {
     maxAssetSize: 512000
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
     (() => {
       return NO_COMPRESS ? undefined : new OptimizeCssAssetsWebpackPlugin()
     })(),
@@ -217,6 +217,15 @@ const config:webpack.Configuration = {
           {
             from: 'src/static',
             to: 'static',
+            globOptions: {
+              dot: true,
+              ignore: ['**/.DS_Store', '**/.gitkeep'],
+            },
+            noErrorOnMissing: true,
+          },
+          {
+            from: 'src/assets/images',
+            to: './assets/images',
             globOptions: {
               dot: true,
               ignore: ['**/.DS_Store', '**/.gitkeep'],

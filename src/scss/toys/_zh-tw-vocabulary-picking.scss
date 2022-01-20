@@ -1,0 +1,6 @@
+.zh-tw-vocabulary-picking{
+  @include zh-tw-character-frame;
+  &__text{
+    font-size: 15vw;
+  }
+}

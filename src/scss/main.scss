@@ -1,6 +1,15 @@
 @import './variables/font';
 @import'./variables/color';
 @import './mixins';
+@import './helper';
 @import './reset';
-
+@import './keyframe';
+//layout
 @import './layouts/site';
+//component
+@import './components/menu';
+@import './components/site-content-switcher';
+//toy
+@import './toys/zh-tw-alphabet';
+@import './toys/zh-tw-vocabulary-picking'; 
+
