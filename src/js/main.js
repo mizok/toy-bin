@@ -8,6 +8,9 @@ function counterCore(ele,arr){
     const refreshFunc = ()=>{
       cells.each((index,cell)=>{
         $(cell).find('[class*="__text"]').text(arrRandom());
+      })
+      cells.each((index,cell)=>{
+        $(cell).find('[class*="__text"]').css('opacity',0.3);
       })  
     }
     let timer;
@@ -16,12 +19,15 @@ function counterCore(ele,arr){
       let  func = ()=>{
         return setTimeout(()=>{
           refreshFunc();
-          delayInitail+=60;
-          if(delayInitail<750){
+          delayInitail+=20;
+          if(delayInitail<300){
             timer = func();
           }
           else{
             clearTimeout(timer);
+            cells.each((index,cell)=>{
+              $(cell).find('[class*="__text"]').css('opacity',1);
+            })  
           }
         },delayInitail) 
       }
@@ -47,9 +53,16 @@ function initZhTwAlphabet(){
 
 function initZhTwVacabularyPicking(){
   const ele = $('.zh-tw-vocabulary-picking');
+  const arr = ['烏龜','IPhone','Chrome','樂透彩','台北101','NEUX','劉信義','高爾夫','獎牌','三明治','音響','運動鞋','第二次世界大戰','洗衣粉','溜冰','NEUX','劉信義','風箏','外套','鍵盤','滑鼠','插頭','原住民','聖母峰','台語','彩虹','酒','磁鐵','手錶','郵差','警察','總統','籃球','口罩','皮鞋','NEUX','劉信義'];
+  counterCore(ele,arr)
+}
+
+function initZhTwLyricPicking(){
+  const ele = $('.zh-tw-lyric-picking');
   const arr = ['太陽','星星','月亮','水','河','天堂','翅膀','傲慢','雨','夢','離開','殺','浪','簡單','蝦','東西','手心','知道','死了','痛快','煙','好想','丟掉','手錶','外套','絕對','動物','彩虹','情歌','風箏','病','思念','陌生人','燃燒','勇敢','悲劇','生命'];
   counterCore(ele,arr)
 }
+
 function initSiteContentSwitcher(){
   const ele = $('.site-content-switcher');
   ele.each((i,o)=>{
@@ -121,6 +134,7 @@ function initComponents(){
   initMenu();
   initZhTwAlphabet();
   initZhTwVacabularyPicking();
+  initZhTwLyricPicking();
 }
 
 $(()=>{
